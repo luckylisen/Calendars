@@ -7,6 +7,7 @@
     <style>
         body {
             font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+            font-size: 15px;
             background-color: #f8f9fa;
             color: #2e2d2d;
             margin: 0;
@@ -20,7 +21,7 @@
             display: flex;
             flex-direction: row;
             gap: 24px;
-            max-width: 1200px;
+            max-width: 900px;
             width: 100%;
         }
 
@@ -51,9 +52,9 @@
             margin-bottom: 10px;
         }
 
-        .last_moon { color:#1976d2; font-weight: 600;}
-        .this_moon { font-size: 20px; font-weight: 800;}
-        .next_moon { color:#d1d0d0; font-weight: 600;}
+        .last_moon { font-size: 16px; color:#1976d2; font-weight: 600;}
+        .this_moon { font-size: 16px; font-weight: 800; text-align: center;}
+        .next_moon { font-size: 16px; color:#d1d0d0; font-weight: 600;}
 
         .calendar-table {
             width: 100%;
@@ -62,7 +63,8 @@
         }
 
         .calendar-table th {
-            padding: 10px 0;
+            border: 1px solid #1976d2;
+            padding: 6px 0;
             font-weight: 600;
         }
 
@@ -78,18 +80,17 @@
 
         /* 日期格 */
         .calendar-table td {
-            border: 1px solid #e0e0e0;
-            /* height: 84px; */
+            border: 1px solid #acaaaa;
             vertical-align: top;
-            padding: 8px 4px;
             position: relative;
+            text-align: center;
         }
 
         /* 格內日期 */
-        .date_number { font-size: 16px; font-weight: bold; }
-        /* 日班.夜班人員 */
-        .name_dayer {font-size: 15px; text-align: center; background: lightpink;}
-        .name_night {font-size: 15px; text-align: center; background: lightblue;}
+        .date_number {font-weight: bold; padding: 3px;}
+        /* 出勤前 */
+        .lightblue_ed {background: lightblue;}
+        .lightpink_ed {background: lightpink;}
 
         /*平板端RWD*/
         @media (max-width: 768px) {
@@ -106,34 +107,26 @@
             }
 
             .calendar-table td {
-                height: 50px; 
+                /* height: 50px;  */
             }
-            /* 格內日期 */
-            .date_number { font-size: 15px; }
+            格內日期
+            /* .date_number { font-size: 15px; } */
             /* 格內時數 */
-            .name_dayer { font-size: 15px;}
-            .name_night { font-size: 15px;}
+            /* . { font-size: 15px;} */
+            /* .lightpink_ed { font-size: 15px;} */
         }
 
         /*手機端RWD*/        
         @media (max-width: 480px) {
-            .name_dayer { font-size: 13px;}
-            .name_night { font-size: 13px;}
+            .lightblue_ed { font-size: 13px;}
+            .lightpink_ed { font-size: 13px;}
+            body {font-size: 13px;}
         }
 
-        /* 已出勤(夜) */
-        /* td.date_blue { background-color: lightblue; color: white; } */
-        /* 已出勤(日) */
-        /* td.date_pink { background-color: lightpink; color: white; } */
-        /* 前後月 */
-        td.date_gray { background-color: lightgrey; color: white; } 
-        /* 已休假 */
-        /* td.date_white { color: lightgray;} */
-
-        /* 待休日 */
-        /* span.rest { color: #ff5252; } */
-        /* 必修日 */
-        /* span.rest_be {background: #ff5252; color: white; padding: 0 3px; border-radius: 3px; } */
+        /* 已出勤 */
+        /* rest_ed { background-color: lightblue; color: white; } */
+        /* 待出勤 */
+        .rest_be { background-color: white; color:black; }
 
         /* 薪資明細 */
         .salary-table { width: 100%; border-collapse: collapse; }
@@ -148,7 +141,7 @@
     <div class="container_l">
         <div class="calendar-nav">
             <div class="last_moon" a href="#">◀ 前1月</a></div>
-            <div class="this_moon">2025年12月</div>
+            <div class="this_moon">大台北中控<br>109-12</div>
             <div class="next_moon" a href="#">後1月 ▶</a></div>
         </div>
 
@@ -166,221 +159,221 @@
             </thead>
             <tbody>
                 <tr>
-                <td class="date date_gray">
-                    <div class="date_number">30</div>
-                    <div class="name_dayer"></div>
-                    <div class="name_night"></div>
+                <td class="date">
+                    <div class="date_number"></div>
+                    <div class=""></div>
+                    <div class=""></div>
                 </td>
-                <td class="date date_blue">
+                <td class="date">
                     <div class="date_number">01</div>
-                    <div class="name_dayer">呂永川</div>
-                    <div class="name_night">林敏隆</div>
+                    <div class="lightpink_ed">林敏隆</div>
+                    <div class="lightblue_ed">呂永川</div>
                     </div>
                 </td>
-                <td class="date date_white">
+                <td class="date">
                     <div class="date_number">02</div>
-                    <div class="name_dayer">王民雄</div>
-                    <div class="name_night">張國志</div>
+                    <div class="lightpink_ed">張國志</div>
+                    <div class="lightblue_ed">王民雄</div>
                     </div>
                 </td>
-                <td class="date date_blue">
+                <td class="date">
                     <div class="date_number">03</div>
-                    <div class="name_dayer">鍾文明</div>
-                    <div class="name_night">新時代</div>
+                    <div class="lightpink_ed">新時代</div>
+                    <div class="lightblue_ed">鍾文明</div>
                     </div>
                 </td>
-                <td class="date date_blue">
+                <td class="date">
                     <div class="date_number">04</div>
-                    <div class="name_dayer">鍾文明</div>
-                    <div class="name_night">鍾文明</div>
+                    <div class="lightpink_ed">鍾文明</div>
+                    <div class="lightblue_ed">鍾文明</div>
                     </div>
                 </td>
-                <td class="date date_pink">
+                <td class="date">
                     <div class="date_number">05</div>
-                    <div class="name_dayer">鍾文明</div>
-                    <div class="name_night">林中山</div>
+                    <div class="lightpink_ed">林中山</div>
+                    <div class="lightblue_ed">鍾文明</div>
                     </div>
                 </td>
-                <td class="date date_white">
+                <td class="date">
                     <div class="date_number">06</div>
-                    <div class="name_dayer">王民雄</div>
-                    <div class="name_night">林中山</div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td class="date date_blue">
-                    <div class="date_number">07</div>
-                    <div class="name_dayer">鍾文明</div>
-                    <div class="name_night">鍾文明</div>
-                    </div>
-                </td>
-                <td class="date date_blue">
-                    <div class="date_number">08</div>
-                    <div class="name_dayer">鍾文明</div>
-                    <div class="name_night">鍾文明</div>
-                    </div>
-                </td>
-                <td class="date date_blue">
-                    <div class="date_number">09</div>
-                    <div class="name_dayer">鍾文明</div>
-                    <div class="name_night">鍾文明</div>
-                    </div>
-                </td>
-                <td class="date date_white">
-                    <div class="date_number">10</div>
-                    <div class="name_dayer">王民雄</div>
-                    <div class="name_night">王金龍</div>
-                    </div>
-                </td>
-                <td class="date date_pink">
-                    <div class="date_number">11</div>
-                    <div class="name_dayer">鍾文明</div>
-                    <div class="name_night">藝術賞</div>
-                    </div>
-                </td>
-                <td class="date date_pink">
-                    <div class="date_number">12</div>
-                    <div class="name_dayer">鍾文明</div>
-                    <div class="name_night">藝術賞</div>
-                    </div>
-                </td>
-                <td class="date date_pink">
-                    <div class="date_number">13</div>
-                    <div class="name_dayer">鍾文明</div>
-                    <div class="name_night">藝術賞</div>
+                    <div class="lightpink_ed">林中山</div>
+                    <div class="lightblue_ed">王民雄</div>
                     </div>
                 </td>
             </tr>
             <tr>
                 <td class="date">
+                    <div class="date_number">07</div>
+                    <div class="lightpink_ed">鍾文明</div>
+                    <div class="lightblue_ed">鍾文明</div>
+                    </div>
+                </td>
+                <td class="date">
+                    <div class="date_number">08</div>
+                    <div class="lightpink_ed">鍾文明</div>
+                    <div class="lightblue_ed">鍾文明</div>
+                    </div>
+                </td>
+                <td class="date">
+                    <div class="date_number">09</div>
+                    <div class="lightpink_ed">鍾文明</div>
+                    <div class="lightblue_ed">鍾文明</div>
+                    </div>
+                </td>
+                <td class="date">
+                    <div class="date_number">10</div>
+                    <div class="lightpink_ed">王金龍</div>
+                    <div class="lightblue_ed">王民雄</div>
+                    </div>
+                </td>
+                <td class="date">
+                    <div class="date_number">11</div>
+                    <div class="lightpink_ed">藝術賞</div>
+                    <div class="lightblue_ed">鍾文明</div>
+                    </div>
+                </td>
+                <td class="date">
+                    <div class="date_number">12</div>
+                    <div class="lightpink_ed">藝術賞</div>
+                    <div class="lightblue_ed">鍾文明</div>
+                    </div>
+                </td>
+                <td class="date">
+                    <div class="date_number">13</div>
+                    <div class="lightpink_ed">藝術賞</div>
+                    <div class="lightblue_ed">鍾文明</div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="date_white">
                     <div class="date_number">14</div>
-                    <div class="name_dayer"><span class="rest_be">王博智</span></div>
-                    <div class="name_night">林中山</div>
+                    <div class="">王博智</div>
+                    <div class="">林中山</div>
                     </div>
                 </td>
                 <td class="date">
                     <div class="date_number">15</div>
-                    <div class="name_dayer">王博智</div>
-                    <div class="name_night">林中山</div>
+                    <div class="">王博智</div>
+                    <div class="">林中山</div>
                     </div>
                 </td>
                 <td class="date">
                     <div class="date_number">16</div>
-                    <div class="name_dayer">鍾文明</div>
-                    <div class="name_night">林中山</div>
+                    <div class="">鍾文明</div>
+                    <div class="">林中山</div>
                     </div>
                 </td>
                 <td class="date">
                     <div class="date_number">17</div>
-                    <div class="name_dayer">鍾文明</div>
-                    <div class="name_night">鍾文明</div>
+                    <div class="">鍾文明</div>
+                    <div class="">鍾文明</div>
                     </div>
                 </td>
                 <td class="date">
                     <div class="date_number">18</div>
-                    <div class="name_dayer">鍾文明</div>
-                    <div class="name_night">林中山</div>
+                    <div class="">鍾文明</div>
+                    <div class="">林中山</div>
                     </div>
                 </td>
                 <td class="date">
                     <div class="date_number">19</div>
-                    <div class="name_dayer"><span class="rest_be">王博智</span></div>
-                    <div class="name_night">林中山</div>
+                    <div class="">王博智</div>
+                    <div class="">林中山</div>
                     </div>
                 </td>
                 <td class="date">
                     <div class="date_number">20</div>
-                    <div class="name_dayer">鍾文明</div>
-                    <div class="name_night">鍾文明</div>
+                    <div class="">鍾文明</div>
+                    <div class="">鍾文明</div>
                     </div>
                 </td>
             </tr>
             <tr>
                 <td class="date">
                     <div class="date_number">21</div>
-                    <div class="name_dayer">鍾文明</div>
-                    <div class="name_night">鍾文明</div>
+                    <div class="">鍾文明</div>
+                    <div class="">鍾文明</div>
                     </div>
                 </td>
                 <td class="date">
                     <div class="date_number">22</div>
-                    <div class="name_dayer">鍾文明</div>
-                    <div class="name_night">鍾文明</div>
+                    <div class="">鍾文明</div>
+                    <div class="">鍾文明</div>
                     </div>
                 </td>
                 <td class="date">
                     <div class="date_number">23</div>
-                    <div class="name_dayer"><span class="rest">王曉霞</span></div>
-                    <div class="name_night">林中山</div>
+                    <div class="">王曉霞</div>
+                    <div class="">林中山</div>
                     </div>
                 </td>
                 <td class="date">
                     <div class="date_number">24</div>
-                    <div class="name_dayer">鍾文明</div>
-                    <div class="name_night">藝術賞</div>
+                    <div class="">鍾文明</div>
+                    <div class="">藝術賞</div>
                     </div>
                 </td>
                 <td class="date">
                     <div class="date_number">25</div>
-                    <div class="name_dayer">鍾文明</div>
-                    <div class="name_night">藝術賞</div>
+                    <div class="">鍾文明</div>
+                    <div class="">藝術賞</div>
                     </div>
                 </td>
                 <td class="date">
                     <div class="date_number">26</div>
-                    <div class="name_dayer">鍾文明</div>
-                    <div class="name_night">藝術賞</div>
+                    <div class="">鍾文明</div>
+                    <div class="">藝術賞</div>
                     </div>
                 </td>
                 <td class="date">
                     <div class="date_number">27</div>
-                    <div class="name_dayer">林敏玲</div>
-                    <div class="name_night">藝術賞</div>
+                    <div class="">林敏玲</div>
+                    <div class="">藝術賞</div>
                     </div>
                 </td>
             </tr>
             <tr>
                 <td class="date">
                     <div class="date_number">28</div>
-                    <div class="name_dayer"><span class="rest">王曉霞</span></div>
-                    <div class="name_night">王博智</div>
+                    <div class="">王曉霞</div>
+                    <div class="">王博智</div>
                     </div>
                 </td>
                 <td class="date">
                     <div class="date_number">29</div>
-                    <div class="name_dayer">鍾文明</div>
-                    <div class="name_night">鍾文明</div>
+                    <div class="">鍾文明</div>
+                    <div class="">鍾文明</div>
                     </div>
                 </td>
                 <td class="date">
                     <div class="date_number">30</div>
-                    <div class="name_dayer">鍾文明</div>
-                    <div class="name_night">鍾文明</div>
+                    <div class="">鍾文明</div>
+                    <div class="">鍾文明</div>
                     </div>
                 </td>
                 <td class="date">
                     <div class="date_number">31</div>
-                    <div class="name_dayer">鍾文明</div>
-                    <div class="name_night">鍾文明</div>
+                    <div class="">鍾文明</div>
+                    <div class="">鍾文明</div>
                     </div>
                 </td>
-                <td class="date date_gray">
-                    <div class="date_number">01</div>
-                    <div class="name_dayer"></div>
-                    <div class="name_night"></div>
+                <td class="date">
+                    <div class="date_number"></div>
+                    <div class=""></div>
+                    <div class=""></div>
                     </div>
                 </td>
-                <td class="date date_gray">
-                    <div class="date_number">02</div>
-                    <div class="name_dayer"></div>
-                    <div class="name_night"></div>
+                <td class="date">
+                    <div class="date_number"></div>
+                    <div class=""></div>
+                    <div class=""></div>
                     </div>
                 </td>
-                <td class="date date_gray">
-                    <div class="date_number">03</div>
-                    <div class="name_dayer"></div>
-                    <div class="name_night"></div>
+                <td class="date">
+                    <div class="date_number"></div>
+                    <div class=""></div>
+                    <div class=" "></div>
                     </div>
                 </td>
             </tr>
@@ -388,7 +381,7 @@
         </table>
     </div>
 
-    <div class="container_r">
+    <!-- <div class="container_r">
         <h2>本月薪資明細</h2>
         <table class="salary-table">
             <tr>
@@ -413,7 +406,7 @@
             </tr>
         </table>
     </div>
-</div>
+</div> -->
 
 </body>
 </html>

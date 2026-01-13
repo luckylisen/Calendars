@@ -7,6 +7,7 @@
     <style>
         body {
             font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+            font-size: 15px;
             background-color: #f8f9fa;
             color: #2e2d2d;
             margin: 0;
@@ -51,9 +52,9 @@
             margin-bottom: 10px;
         }
 
-        .last_moon { color:#1976d2; font-weight: 600;}
-        .this_moon { font-size: 20px; font-weight: 800;}
-        .next_moon { color:#d1d0d0; font-weight: 600;}
+        .last_moon { font-size: 16px; color:#1976d2; font-weight: 600;}
+        .this_moon { font-size: 16px; font-weight: 800; text-align: center;}
+        .next_moon { font-size: 16px; color:#d1d0d0; font-weight: 600;}
 
         .calendar-table {
             width: 100%;
@@ -62,7 +63,8 @@
         }
 
         .calendar-table th {
-            padding: 10px 0;
+            border: 1px solid #1976d2;
+            padding: 6px 0;
             font-weight: 600;
         }
 
@@ -79,16 +81,16 @@
         /* 日期格 */
         .calendar-table td {
             border: 1px solid #e0e0e0;
-            height: 100px;
             vertical-align: top;
+            height: 100px;
             padding: 8px 4px;
             position: relative;
         }
 
         /* 格內日期 */
-        .date_number { font-size: 16px; font-weight: bold; }
+        .date_number { font-size: 15px; font-weight: bold; }
         /* 格內時數 */
-        .attendance { font-size: 18px; font-weight: bold; text-align: center; margin: 8px 0; }
+        .attendance { font-size: 16px; font-weight: bold; text-align: center; margin: 8px 0; }
         
         /* 哨所名稱樣式 */
         .date_sentry {
@@ -116,9 +118,9 @@
                 height: 85px; 
             }
             /* 格內日期 */
-            .date_number { font-size: 14px; }
+            /* .date_number { font-size: 14px; } */
             /* 格內時數 */
-            .attendance { font-size: 16px; margin: 10px 0; padding-bottom: 5px;}
+            /* .attendance { font-size: 16px; margin: 10px 0; padding-bottom: 5px;} */
         }
 
         /*手機端RWD*/        
@@ -131,13 +133,9 @@
         }
 
         /* 已出勤(夜) */
-        td.date_blue { background-color: lightblue; color: white; }
+        td.date_blue { background-color: lightblue; }
         /* 已出勤(日) */
-        td.date_pink { background-color: lightpink; color: white; }
-        /* 前後月 */
-        td.date_gray { background-color: lightgrey; color: white; } 
-        /* 已休假 */
-        td.date_white { color: lightgray;}
+        td.date_pink { background-color: lightpink; }
 
         /* 待休日 */
         span.rest { color: #ff5252; }
@@ -157,7 +155,7 @@
     <div class="container_l">
         <div class="calendar-nav">
             <div class="last_moon" a href="#">◀ 前1月</a></div>
-            <div class="this_moon">2025年12月</div>
+            <div class="this_moon">林中山<br>2025-12</div>
             <div class="next_moon" a href="#">後1月 ▶</a></div>
         </div>
 
@@ -175,8 +173,8 @@
             </thead>
             <tbody>
                 <tr>
-                <td class="date date_gray">
-                    <div class="date_number">30</div>
+                <td class="date">
+                    <div class="date_number"></div>
                     <div class="attendance"></div>
                     <div class="date_sentry"></div>
                 </td>
@@ -186,7 +184,7 @@
                     <div class="date_sentry">大台北控</div>
                     </div>
                 </td>
-                <td class="date date_white">
+                <td class="date">
                     <div class="date_number">02</div>
                     <div class="attendance">休</div>
                     <div class="date_sentry"></div>
@@ -210,7 +208,7 @@
                     <div class="date_sentry">中山首府</div>
                     </div>
                 </td>
-                <td class="date date_white">
+                <td class="date">
                     <div class="date_number">06</div>
                     <div class="attendance">休</div>
                     <div class="date_sentry"></div>
@@ -236,7 +234,7 @@
                     <div class="date_sentry">永和世家</div>
                     </div>
                 </td>
-                <td class="date date_white">
+                <td class="date">
                     <div class="date_number">10</div>
                     <div class="attendance">休</div>
                     <div class="date_sentry"></div>
@@ -374,20 +372,20 @@
                     <div class="date_sentry">敦南一品</div>
                     </div>
                 </td>
-                <td class="date date_gray">
-                    <div class="date_number">01</div>
+                <td class="date">
+                    <div class="date_number"></div>
                     <div class="attendance"></div>
                     <div class="date_sentry"></div>
                     </div>
                 </td>
-                <td class="date date_gray">
-                    <div class="date_number">02</div>
+                <td class="date">
+                    <div class="date_number"></div>
                     <div class="attendance"></div>
                     <div class="date_sentry"></div>
                     </div>
                 </td>
-                <td class="date date_gray">
-                    <div class="date_number">03</div>
+                <td class="date">
+                    <div class="date_number"></div>
                     <div class="attendance"></div>
                     <div class="date_sentry"></div>
                     </div>
