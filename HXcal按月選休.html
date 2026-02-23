@@ -49,22 +49,22 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
 
-        .last_moon { font-size: 16px; color:#1976d2; font-weight: 600;}
-        .this_moon { font-size: 16px; font-weight: 800; text-align: center;}
-        .next_moon { font-size: 16px; color:#d1d0d0; font-weight: 600;}
+        .last_moon,.last_week { font-size: 16px; color:#1976d2; font-weight: 600;}
+        .this_moon,.this_week { font-size: 16px; font-weight: 800; text-align: center;}
+        .next_moon,.next_week { font-size: 16px; color:#d1d0d0; font-weight: 600;}
 
         .calendar-table {
             width: 100%;
+            border: 1px solid #636262;
             border-collapse: collapse;
             table-layout: fixed; 
         }
 
         .calendar-table th {
-            border: 1px solid #1976d2;
-            padding: 6px 0;
+            padding: 8px 0;
             font-weight: 600;
         }
 
@@ -81,6 +81,7 @@
         /* 日期格 */
         .calendar-table td {
             border: 1px solid #acaaaa;
+            padding: 0;
             vertical-align: top;
             position: relative;
             text-align: center;
@@ -146,10 +147,16 @@
     <div class="container_l">
         <div class="calendar-nav">
             <div class="last_moon" a href="#">◀ 前1月</a></div>
-            <div class="this_moon">夜班<br>109-12</div>
+            <div class="this_moon">2026-02 (夜) </div>
             <div class="next_moon" a href="#">後1月 ▶</a></div>
         </div>
 
+        <!-- <div class="calendar-nav">
+            <div class="last_week" a href="#">◀ 前1週</a></div>
+            <div class="this_week">夜班</div>
+            <div class="next_week" a href="#">後1週 ▶</a></div>
+        </div> -->
+        
         <table class="calendar-table">
             <thead>
                 <tr>
