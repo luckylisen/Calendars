@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>案場排班表</title>
+    <style>
+        body {
+            font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+            font-size: 15px;
+            background-color: #f8f9fa;
+            color: #2e2d2d;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            /* align-items: center; */
+        }
+
+        .main-wrapper {
+            display: flex;
+            flex-direction: row;
+            gap: 24px;
+            /* max-width: 900px; */
+            /* width: 100%; */
+        }
+
+
+
+
+        /* 導航標題 */
+        .calendar-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .last_moon,.last_week { font-size: 16px; color:#1976d2; font-weight: 600;}
+        .this_moon,.this_week { font-size: 16px; font-weight: 800; text-align: center;}
+        .next_moon,.next_week { font-size: 16px; color:#d1d0d0; font-weight: 600;}
+
+        .calendar-table {
+            width: 50px;
+            border: 1px solid #636262;
+            border-collapse: collapse;
+            table-layout: fixed; 
+            overflow-x: auto;
+        }
+
+        .calendar-table th {
+            padding: 8px 0;
+            font-weight: 600;
+        }
+
+        /* 星期表頭(1~5) */
+        th {
+            line-height: 2px;
+            /* width: 1px; */
+        }
+
+        th.week {
+            /* font-family: Impact, sans-serif; */
+            background-color:#1976d2;
+            /* width: 80px; */
+            color: white;
+        }
+
+
+        /* 星期表頭(6.日)*/
+        th.weekend {
+            color: #ff5252;
+        }
+
+        /* 日期格 */
+        .calendar-table td {
+            border: 1px solid #acaaaa;
+            /* padding: 0; */
+            vertical-align: top;
+            position: relative;
+            text-align: center;
+        }
+
+
+        /* 格內日期 */
+        .date{}
+        .date_number {font-weight: bold; padding: 3px; background: #fccccf;}
+        .post1{padding: 8px; background: #f0f0f0;}
+        .post2{padding: 8px; background: #ffffff;}
+        .post3{padding: 8px; background: #f0f0f0;}
+        .post4{padding: 8px; background: #ffffff;}
+        /* 出勤前 */
+        .lightblue_ed {background: lightblue;}
+        .lightpink_ed {background: lightpink;}
+
+    /*平板端RWD*/
+    /* @media (max-width: 768px) {
+        body { padding: 10px 0; } 
+        
+        .main-wrapper { 
+            flex-direction: column; 
+            gap: 12px;
+        }
+        /* 月曆塊 */
+        .container_l {
+            padding: 10px 5px; 
+            border-radius: 0; 
+        }
+        .calendar-table td {
+            /* height: 50px;  */
+        }
+        格內日期
+        /* .date_number { font-size: 15px; } */
+        /* 格內時數 */
+        /* . { font-size: 15px;} */
+        /* .lightpink_ed { font-size: 15px;} */
+    /* } */
+
+    /*手機端RWD*/        
+    /* @media (max-width: 480px) {
+        .lightblue_ed { font-size: 13px;}
+        .lightpink_ed { font-size: 13px;}
+        body {font-size: 13px;}
+    } */
+    </style>
+</head>
+<body>
+<div class="main-wrapper">
+    <div class="container_l">
+        <div class="calendar-nav">
+            <div class="last_moon" a href="#">◀ 前1月</a></div>
+            <div class="this_moon">2026-02 (夜) </div>
+            <div class="next_moon" a href="#">後1月 ▶</a></div>
+        </div>
+        
+        <table class="calendar-table">
+            <colgroup>
+                <col style="width: 24px;"> 
+                <col style="width: 70px;"> 
+                <col span="31" style="width: 50px;">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th class="week postid" style="width: 150px;">00</th>
+                    <th class="week postname">00</th>
+                    <th class="week">01</th>
+                    <th class="week">02</th>
+                    <th class="week">03</th>
+                    <th class="week">04</th>
+                    <th class="week">05</th>
+                    <th class="week">06</th>
+                    <th class="week">07</th>
+                    <th class="week">08</th>
+                    <th class="week">09</th>
+                    <th class="week">10</th>
+                    <th class="week">11</th>
+                    <th class="week">12</th>
+                    <th class="week">13</th>
+                    <th class="week">14</th>
+                    <th class="week">15</th>
+                    <th class="week">16</th>
+                    <th class="week">17</th>
+                    <th class="week">18</th>
+                    <th class="week">19</th>
+                    <th class="week">20</th>
+                    <th class="week">21</th>
+                    <th class="week">22</th>
+                    <th class="week">23</th>
+                    <th class="week">24</th>
+                    <th class="week">25</th>
+                    <th class="week">26</th>
+                    <th class="week">27</th>
+                    <th class="week">28</th>
+                    <th class="week">29</th>
+                    <th class="week">30</th>
+                    <th class="week">31</th>
+                </tr>
+                <tr>
+                    <th class="week"></th>
+                    <th class="week"></th>
+                    <th class="week weekend">日</th>
+                    <th class="week">一</th>
+                    <th class="week">二</th>
+                    <th class="week">三</th>
+                    <th class="week">四</th>
+                    <th class="week">五</th>
+                    <th class="week weekend">六</th>
+                    <th class="week weekend">日</th>
+                    <th class="week">一</th>
+                    <th class="week">二</th>
+                    <th class="week">三</th>
+                    <th class="week">四</th>
+                    <th class="week">五</th>
+                    <th class="week weekend">六</th>
+                    <th class="week weekend">日</th>
+                    <th class="week">一</th>
+                    <th class="week">二</th>
+                    <th class="week">三</th>
+                    <th class="week">四</th>
+                    <th class="week">五</th>
+                    <th class="week weekend">六</th>
+                    <th class="week weekend">日</th>
+                    <th class="week">一</th>
+                    <th class="week">二</th>
+                    <th class="week">三</th>
+                    <th class="week">四</th>
+                    <th class="week">五</th>
+                    <th class="week weekend">六</th>
+                    <th class="week weekend">日</th>
+                    <th class="week">一</th>
+                    <th class="week">二</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                <td class="postid"> 
+                    <div class="">01</div>
+                    <div class="">02</div>
+                    <div class="">03</div>
+                    <div class="">04</div>
+                    <div class="">05</div>
+                    <div class="">06</div>
+                    <div class="">07</div>
+                    <div class="">08</div>
+                    <div class="">09</div>
+                    <div class="">10</div>
+                </td>
+                <td class="postname">
+                    <div class="">馥華車道</div>
+                    <div class="">敦南一品</div>
+                </td>
+                <td class="date">
+                    <div class="">林中山</div>
+                    <div class="">陳禹憲</div>
+                </td>
+                <td class="date">
+                    <div class="">林中山</div>
+                    <div class="">陳禹憲</div>
+                </td>
+                <td class="date">
+                    <div class="">林中山</div>
+                    <div class="">陳禹憲</div>
+                </td>
+                <td class="date">
+                    <div class="">林中山</div>
+                    <div class="">陳禹憲</div>
+                </td>
+                <td class="date">
+                    <div class="">林中山</div>
+                    <div class="">陳禹憲</div>
+                </td>
+                <td class="date">
+                    <div class="">林中山</div>
+                    <div class="">陳禹憲</div>
+                </td>
+                <td class="date">
+                    <div class="">林中山</div>
+                    <div class="">陳禹憲</div>
+                </td>
+                <td class="date">
+                    <div class="">林中山</div>
+                    <div class="">陳禹憲</div>
+                </td>
+                <td class="date">
+                    <div class="">林中山</div>
+                    <div class="">陳禹憲</div>
+                </td>
+                <td class="date">
+                    <div class="">林中山</div>
+                    <div class="">陳禹憲</div>
+                </td>
+                <td class="date">
+                    <div class="">林中山</div>
+                    <div class="">陳禹憲</div>
+                </td>
+                <td class="date">
+                    <div class="">林中山</div>
+                    <div class="">陳禹憲</div>
+                </td>
+                <td class="date">
+                    <div class="">林中山</div>
+                    <div class="">陳禹憲</div>
+                </td>
+                <td class="date">
+                    <div class="">林中山</div>
+                    <div class="">陳禹憲</div>
+                </td>
+                <td class="date">
+                    <div class="">林中山</div>
+                    <div class="">陳禹憲</div>
+                </td>
+                <td class="date">
+                    <div class="">林中山</div>
+                    <div class="">陳禹憲</div>
+                </td>
+                <td class="date">
+                    <div class="">林中山</div>
+                    <div class="">陳禹憲</div>
+                </td>
+                <td class="date">
+                    <div class="">林中山</div>
+                    <div class="">陳禹憲</div>
+                </td>
+                <td class="date">
+                    <div class="">林中山</div>
+                    <div class="">陳禹憲</div>
+                </td>
+                <td class="date">
+                    <div class="">林中山</div>
+                    <div class="">陳禹憲</div>
+                </td>
+                <td class="date">
+                    <div class="">林中山</div>
+                    <div class="">陳禹憲</div>
+                </td>
+                <td class="date">
+                    <div class="">林中山</div>
+                    <div class="">陳禹憲</div>
+                </td>
+                <td class="date">
+                    <div class="">林中山</div>
+                    <div class="">陳禹憲</div>
+                </td>
+                <td class="date">
+                    <div class="">林中山</div>
+                    <div class="">陳禹憲</div>
+                </td>
+                <td class="date">
+                    <div class="">林中山</div>
+                    <div class="">陳禹憲</div>
+                </td>
+                <td class="date">
+                    <div class="">林中山</div>
+                    <div class="">陳禹憲</div>
+                </td>
+                <td class="date">
+                    <div class="">林中山</div>
+                    <div class="">陳禹憲</div>
+                </td>
+                <td class="date">
+                    <div class="">林中山</div>
+                    <div class="">陳禹憲</div>
+                </td>
+                <td class="date">
+                    <div class="">林中山</div>
+                    <div class="">陳禹憲</div>
+                </td>
+                <td class="date">
+                    <div class="">林中山</div>
+                    <div class="">陳禹憲</div>
+                </td>
+                <td class="date">
+                    <div class="">林中山</div>
+                    <div class="">陳禹憲</div>
+                </td>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+</body>
+</html>
